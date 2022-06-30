@@ -1,0 +1,53 @@
+buildscript {
+    ext.kotlin_version = '1.7.0'
+    repositories {
+        mavenCentral()
+    }
+}
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.7.0'
+}
+allprojects {
+    repositories {
+        maven {
+            url = 'https://papermc.io/repo/repository/maven-public/'
+            url = 'https://repo.extendedclip.com/content/repositories/placeholderapi/'
+            url = 'https://jitpack.io'
+        }
+        mavenCentral()
+        mavenLocal()
+    }
+}
+apply plugin: 'kotlin'
+group = 'me.topilov'
+version = '1.0'
+afterEvaluate {
+    jar {
+        archiveBaseName.set 'LumberJackSimulator'
+        from configurations.runtimeClasspath.collect { it.directory ? it : zipTree(it) }
+        duplicatesStrategy DuplicatesStrategy.EXCLUDE
+    }
+}
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+repositories {
+    mavenCentral()
+}
+dependencies {
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.0'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.13.2-R0.1-SNAPSHOT'
+    compileOnly 'me.clip:placeholderapi:2.11.1'
+    compileOnly "com.github.MilkBowl:VaultAPI:1.7"
+    compileOnly 'de.tr7zw:item-nbt-api-plugin:2.10.0'
+    implementation 'fr.mrmicky:fastboard:1.2.1'
+    implementation 'com.github.KodySimpson:SimpAPI:4.3.2'
+}
