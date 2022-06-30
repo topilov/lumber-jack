@@ -1,0 +1,31 @@
+name: LumberJackSimulator
+version: '${version}'
+main: me.topilov.App
+api-version: 1.13
+commands:
+  test: {}
+  level: {}
+  eco: {}
+  upgrade: {}
+  st: {}
+  et: {}
+  sound: {}
+  chancecmd: {}
+  scrmsg: {}
+  toast: {}
+  morestats: {}
+  rebirth: {}
+  menu: {}
+  sudo: {}
+  locations: {}
+  loctp: {}
+  getitem: {}
+  booster: {}
+  thanks: {}
+  broadlocal: {}
+  softeco: {}
+  text: {}
+  bits: {}
+  donate: {}
+  sellall: {}
+  pets: {}
